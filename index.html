@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let getComputerChoice = Math.floor(Math.random()*3) + 1;
+          let computerChoice;
+
+        if(getComputerChoice === 1){
+            computerChoice = "rock";
+        } else if(getComputerChoice === 2){
+            computerChoice = "paper";
+        } else if(getComputerChoice === 3){
+            computerChoice = "scissors";
+        }
+        console.log(computerChoice);
+
+        let getHumanChoice = prompt("Pick your weapon:Rock, Paper, Scissors: ").toLowerCase();
+        console.log(getHumanChoice);
+
+        let humanScore = 0;
+        let computerScore = 0;
+        let rounds = 0
+        
+            function playRound(humanChoice, computerChoice){
+            if(computerChoice === getHumanChoice ){
+                console.log("You picked the same weapon, no winners this round!");
+            }else if(computerChoice === "rock" && getHumanChoice === "scissors"){
+                console.log("Rock beats scissors, you lose!")
+                computerScore++;
+            }else if(computerChoice === "rock" && getHumanChoice === "paper"){
+                console.log("Paper beats rock, you win!")
+                humanScore++;
+            }else if(computerChoice === "paper" && getHumanChoice === "rock"){
+                console.log("Paper beats rock, you lose!")
+                computerScore++;
+            }else if(computerChoice === "paper" && getHumanChoice === "scissors"){
+                console.log("Scissors beats paper, you win!")
+                humanScore++;    
+            }else if(computerChoice === "scissors" && getHumanChoice === "paper"){
+                console.log("Scissors beats paper, you lose!")
+                computerScore++;
+            }else if(computerChoice === "scissors" && getHumanChoice === "rock"){
+                console.log("Rock beats scissors, you win!")
+                humanScore++;
+            }
+            console.log("Human Score: " + humanScore);
+            console.log("Computer Score: " + computerScore);       
+        }     
+
+        playRound(getHumanChoice, computerChoice);
+
+
+
+    </script>
+</body>
+</html>
