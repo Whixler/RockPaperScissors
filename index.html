@@ -26,35 +26,25 @@
         let computerScore = 0;
         let rounds = 0
         
-            function playRound(humanChoice, computerChoice){
+        function playRound(humanChoice, computerChoice){
             if(computerChoice === getHumanChoice ){
                 console.log("You picked the same weapon, no winners this round!");
-            }else if(computerChoice === "rock" && getHumanChoice === "scissors"){
-                console.log("Rock beats scissors, you lose!")
+            }else if((computerChoice === "rock" && getHumanChoice === "scissors") || 
+            (computerChoice === "paper" && getHumanChoice === "rock") ||
+            (computerChoice === "scissors" && humanChoice === "paper")){
+                console.log(computerChoice + " beats " + getHumanChoice +", you lose!")
                 computerScore++;
-            }else if(computerChoice === "rock" && getHumanChoice === "paper"){
-                console.log("Paper beats rock, you win!")
-                humanScore++;
-            }else if(computerChoice === "paper" && getHumanChoice === "rock"){
-                console.log("Paper beats rock, you lose!")
-                computerScore++;
-            }else if(computerChoice === "paper" && getHumanChoice === "scissors"){
-                console.log("Scissors beats paper, you win!")
-                humanScore++;    
-            }else if(computerChoice === "scissors" && getHumanChoice === "paper"){
-                console.log("Scissors beats paper, you lose!")
-                computerScore++;
-            }else if(computerChoice === "scissors" && getHumanChoice === "rock"){
-                console.log("Rock beats scissors, you win!")
+            }else if(computerChoice === "rock" && getHumanChoice === "paper" ||
+            (computerChoice === "paper" && humanChoice === "scissors") ||
+            (computerChoice === "scissors" && humanChoice === "rock")){
+                console.log(getHumanChoice + " beats " + computerChoice +", you win!")
                 humanScore++;
             }
             console.log("Human Score: " + humanScore);
             console.log("Computer Score: " + computerScore);       
         }     
-
+               
         playRound(getHumanChoice, computerChoice);
-
-
 
     </script>
 </body>
