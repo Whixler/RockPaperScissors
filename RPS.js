@@ -15,21 +15,23 @@ let computerChoice;
         } else if(getComputerChoice === 3){
             computerChoice = "scissors";
         }
+        console.log(computerChoice);
             if(computerChoice === getHumanChoice ){
                 console.log("You picked the same weapon, no winners this round!");
             }else if((computerChoice === "rock" && getHumanChoice === "scissors") || 
             (computerChoice === "paper" && getHumanChoice === "rock") ||
-            (computerChoice === "scissors" && humanChoice === "paper")){
+            (computerChoice === "scissors" && getHumanChoice === "paper")){
                 console.log(computerChoice + " beats " + getHumanChoice +", you lose!")
                 computerScore++;
             }else if((computerChoice === "rock" && getHumanChoice === "paper") ||
-            (computerChoice === "paper" && humanChoice === "scissors") ||
-            (computerChoice === "scissors" && humanChoice === "rock")){
+            (computerChoice === "paper" && getHumanChoice === "scissors") ||
+            (computerChoice === "scissors" && getHumanChoice === "rock")){
                 console.log(getHumanChoice + " beats " + computerChoice +", you win!")
                 humanScore++;
             }
             console.log("Human Score: " + humanScore + "  || Computer Score: "+ computerScore);
             console.log("");
+            
         }     
                
         for (let i = 0; i < rounds; i++){
