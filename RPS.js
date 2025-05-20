@@ -16,14 +16,16 @@ function randomChoice(){
 function playRound(playerChoice){
     let computerChoice = randomChoice();      
         if (computerChoice === playerChoice ){
-            console.log("You picked the same weapon, no winners this round!"); //change to output
+            infoScore.textContent ="It's a tie!"
+            mesScore.textContent = "You picked the same weapon"
         } 
         else if(
             (computerChoice === "rock" && playerChoice === "scissor") || 
             (computerChoice === "paper" && playerChoice === "rock") ||
             (computerChoice === "scissor" && playerChoice === "paper")
         ) {
-            console.log(computerChoice + " beats " + playerChoice +", you lose!") // computer wins
+            infoScore.textContent ="You lose!"
+            mesScore.textContent = computerChoice + " beats " + playerChoice
             computerScore++;
         } 
         else if(
@@ -31,11 +33,12 @@ function playRound(playerChoice){
             (computerChoice === "paper" && playerChoice === "scissor") ||
             (computerChoice === "scissor" && playerChoice === "rock")
         ) {
-            console.log(playerChoice + " beats " + computerChoice +", you win!") // you win
+            infoScore.textContent ="You win!"
+            mesScore.textContent = playerChoice + " beats " + computerChoice
             playerScore++;
         }
-        updateScore();
-        console.log("Human Score: " + playerScore + "  || Computer Score: "+ computerScore); // update score
+        pScore.textContent = "Player Score: " + playerScore;
+        cScore.textContent = "Computer Score: " + computerScore;
     }     
 
 document.querySelector("#btnrock")?.addEventListener('click', () => {
@@ -50,14 +53,11 @@ document.querySelector("#btnscissor")?.addEventListener('click', () => {
     playRound("scissor");
 });
 
-function updateScore(){
-    pScore.textContent = "Player Score: " + playerScore;
-    cScore.textContent = "Computer Score: " + computerScore;
-}
-
+//UI
 const pScore = document.getElementById("playerScore");
 const cScore = document.getElementById("computerScore");
+const infoScore = document.getElementById("info");
+const mesScore = document.getElementById("scoreMessage");
 
-// updateScore();
 
 
