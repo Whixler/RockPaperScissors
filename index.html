@@ -3,9 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Rock Paper Scissor</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Audiowide">
 </head>
 <body>
-    <script src="RPS.js"></script>
+    <h1 class="title">Rock Paper Scissor</h1>
+    <img src="rps-white.png">
+    <div id="main">
+        <div class="scoreboard">
+            <h2 class="scoreInfo" id="info">First to score 5 points wins!</h2>
+            <h2 class="message" id="scoreMessage"></h2>
+            <div class="scoreContainer">
+                <p class="score" id="playerScore">Player Score: 0</p>
+                <p class="score" id="computerScore">Computer Score: 0</p>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="btns">
+    <img src="rock.png" id="btnrock"></button>
+    <img src="paper.png" id="btnpaper"></button>
+    <img src="scissor.png" id="btnscissor"></button>
+    </div>
+    <script src="RPS.js"></script>  
+    
 </body>
 </html>

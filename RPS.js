@@ -1,42 +1,68 @@
-let computerChoice;
-let getHumanChoice;
-let getComputerChoice;     
-let humanScore = 0;
+let playerScore = 0;
 let computerScore = 0;
-let rounds = 5;
 
-for (let i = 0; i < rounds; i++){
-    playRound(getHumanChoice, computerChoice);
+function randomChoice(){
+    let random = Math.floor(Math.random() * 3);
+        switch (random) {
+            case 0:
+                return "rock"
+            case 1:
+                return "paper"
+            case 2: 
+                return "scissor"
+            }
 }
         
-function playRound(humanChoice, computerChoice){
-    getHumanChoice = prompt("Pick your weapon:Rock, Paper, Scissors: ").toLowerCase();
-    getComputerChoice = Math.floor(Math.random()*3) + 1;
-    if(getComputerChoice === 1){
-        computerChoice = "rock";
-    } else if(getComputerChoice === 2){
-        computerChoice = "paper";
-    } else if(getComputerChoice === 3){
-        computerChoice = "scissors";
+function playRound(playerChoice){
+    if(playerScore === 5) {
+        alert("You win this match!")
+    } else if(computerScore === 5){
+        alert("You lose this match!")
     }
-
-    if(computerChoice === getHumanChoice ){
-        console.log("You picked the same weapon, no winners this round!");
-    } else if(
-        (computerChoice === "rock" && getHumanChoice === "scissors") || 
-        (computerChoice === "paper" && getHumanChoice === "rock") ||
-        (computerChoice === "scissors" && humanChoice === "paper")){
-            console.log(computerChoice + " beats " + getHumanChoice +", you lose!")
+    let computerChoice = randomChoice();      
+        if (computerChoice === playerChoice ){
+            infoScore.textContent ="It's a tie!"
+            mesScore.textContent = "You picked the same weapon"
+        } 
+        else if(
+            (computerChoice === "rock" && playerChoice === "scissor") || 
+            (computerChoice === "paper" && playerChoice === "rock") ||
+            (computerChoice === "scissor" && playerChoice === "paper")
+        ) {
+            infoScore.textContent ="You lose!"
+            mesScore.textContent = computerChoice + " beats " + playerChoice
             computerScore++;
-    } else if(
-        (computerChoice === "rock" && getHumanChoice === "paper") ||
-        (computerChoice === "paper" && humanChoice === "scissors") ||
-        (computerChoice === "scissors" && humanChoice === "rock")){
-            console.log(getHumanChoice + " beats " + computerChoice +", you win!")
-            humanScore++;
-    }
+        } 
+        else if(
+            (computerChoice === "rock" && playerChoice === "paper") ||
+            (computerChoice === "paper" && playerChoice === "scissor") ||
+            (computerChoice === "scissor" && playerChoice === "rock")
+        ) {
+            infoScore.textContent ="You win!"
+            mesScore.textContent = playerChoice + " beats " + computerChoice
+            playerScore++;
+        }
+        pScore.textContent = "Player Score: " + playerScore;
+        cScore.textContent = "Computer Score: " + computerScore;
+    }     
 
-    console.log("Human Score: " + humanScore + "  || Computer Score: "+ computerScore);
-    console.log("");
-}     
-    
+document.querySelector("#btnrock")?.addEventListener('click', () => {
+    playRound("rock");
+});
+
+document.querySelector("#btnpaper")?.addEventListener('click', () => {
+    playRound("paper");
+});
+
+document.querySelector("#btnscissor")?.addEventListener('click', () => {
+    playRound("scissor");
+});
+
+//UI
+const pScore = document.getElementById("playerScore");
+const cScore = document.getElementById("computerScore");
+const infoScore = document.getElementById("info");
+const mesScore = document.getElementById("scoreMessage");
+
+
+
