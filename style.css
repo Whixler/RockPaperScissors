@@ -1,0 +1,22 @@
+body{
+    background-color: #1F2937;
+    color: #f9faf8;
+    font-family: "Audiowide", sans-serif;
+}
+.title{
+    font-family: "Audiowide", sans-serif;
+    display: flex;
+    justify-content: center;
+
+}
+/* .header, .subheader, .footer{
+    background-color: #1F2937;
+    color: #f9faf8;
+    padding-left: 200px;
+    padding-right: 200px;
+} */
+.btns{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
