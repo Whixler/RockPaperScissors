@@ -47,3 +47,10 @@ document.querySelector("#btnpaper")?.addEventListener('click', () => {
 document.querySelector("#btnscissor")?.addEventListener('click', () => {
     playRound("scissor");
 });
+
+const container = document.querySelector("#main");
+
+const content = document.createElement("div");
+content.classList.add("content");
+content.textContent = "First to score 5 points wins!";
+container.appendChild(content);
