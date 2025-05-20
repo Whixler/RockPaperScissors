@@ -11,21 +11,22 @@ body{
     font-size: 50px;
 
 }
-/* .header, .subheader, .footer{
-    background-color: #1F2937;
-    color: #f9faf8;
-    padding-left: 200px;
-    padding-right: 200px;
-} */
+
 .btns{
     display: flex;
     justify-content: space-around;
     align-items: center;
 }
+
 #main{
     display: flex;
     justify-content: center;
     text-align: center;
+}
+img{
+    display: flex;
+    justify-self: center;
+    width: 200px;
 }
 
 .scoreContainer, .btns{
@@ -42,7 +43,11 @@ body{
     font-weight: 500;
 }
 
-.btns{
-    display: flex;
+#btnrock, #btnpaper, #btnscissor {
+    width: 100px;
+    
+}
 
+#btnrock:hover, #btnpaper:hover, #btnscissor:hover  {
+    transform: scale(1.2);
 }
