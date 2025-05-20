@@ -14,6 +14,11 @@ function randomChoice(){
 }
         
 function playRound(playerChoice){
+    if(playerScore === 5) {
+        alert("You win this match!")
+    } else if(computerScore === 5){
+        alert("You lose this match!")
+    }
     let computerChoice = randomChoice();      
         if (computerChoice === playerChoice ){
             infoScore.textContent ="It's a tie!"
